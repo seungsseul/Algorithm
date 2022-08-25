@@ -13,9 +13,6 @@ public class Solution {
 					arr[i][j] = String.valueOf(line.charAt(j));
 				}
 			}
-//			for(int i=0;i<arr.length;i++) {
-//				System.out.println(Arrays.toString(arr[i]));
-//			}
 			int correct=0;
 			int[] dr = {-1,1,0,0,-1,-1,1,1};
 			int[] dc = {0,0,-1,1,-1,1,-1,1};
@@ -50,7 +47,6 @@ public class Solution {
 					}
 				}
 			}
-//			System.out.println(correct);
 			if(correct==4) {
 				System.out.println("#"+t+" YES");
 			}
