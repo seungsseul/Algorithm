@@ -11,7 +11,9 @@ public class Main {
 		for(int t=1;t<=T;t++) {
 			String vps = br.readLine();
 			int cnt=0;
+			//배열의 길이만큼 돌려서 '('가 나오면 cnt++, ')'가 나오면 cnt--해주기
 			for(int i=0;i<vps.length();i++) {
+				//for문 돌다가 1번이라도 음수가 나오면 결과출력
 				if(cnt<0) {
 					sb.append("NO").append("\n");
 					continue Loop;
@@ -23,6 +25,7 @@ public class Main {
 					cnt--;
 				}
 			}
+			//카운트가 정확히 0이라면 YES출력
 			if(cnt==0) {
 				sb.append("YES");
 			}
