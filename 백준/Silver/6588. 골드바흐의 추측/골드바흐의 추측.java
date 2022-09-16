@@ -39,7 +39,7 @@ public class Main {
 					break;
 				}
 			}
-			//만약 N과 같은 요솟값이 없으면 해당 문구 반환
+			//N과 같은 요솟값이 없으면 해당 문구 반환
 			if(!correct) {
 				sb.append("Goldbach's conjecture is wrong.").append("\n");
 				continue;
