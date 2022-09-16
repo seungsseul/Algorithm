@@ -9,7 +9,7 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		boolean[] arr = new boolean[1000001];
-		//소수인홀수 2단부터 조건최대범위의 제곱근 단까지 탐색하여 걸리는 수들은 모두 true로 전환
+		//2단부터 조건최대범위의 제곱근 단까지 탐색하여 걸리는 수들은 모두 true로 전환
 		for(int i=2;i<=Math.sqrt(1000001);i++) {
 			for(int j=i*i;j<1000001;j+=i) {
 				arr[j]=true;
