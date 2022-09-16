@@ -29,7 +29,7 @@ public class Main {
 				break;
 			}
 			boolean correct = false;
-			//N에서 list.get(i)를 뺀값이 인덱스일때 배열값이 false면 소수라는 뜻
+			//N에서 list.get(i)를 뺀값을 인덱스로 가지는 배열이 false면 소수라는 뜻
 			//절댓값도 당연히 제일 큰수이므로 해당 값 출력
 			//임의의 값 boolean true로 변경
 			for(int i=0;i<list.size();i++) {
@@ -39,7 +39,7 @@ public class Main {
 					break;
 				}
 			}
-			//N과 같은 요솟값이 없으면 해당 문구 반환
+			//만약 N과 같은 요솟값이 없으면 해당 문구 반환
 			if(!correct) {
 				sb.append("Goldbach's conjecture is wrong.").append("\n");
 				continue;
