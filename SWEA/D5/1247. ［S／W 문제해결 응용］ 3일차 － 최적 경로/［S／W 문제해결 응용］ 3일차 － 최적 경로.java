@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Solution {
-	
+	static int min;
 	static int[][] arr;
 	static int N;
 	static int[][] choice;
@@ -31,14 +31,9 @@ public class Solution {
 			visited = new boolean[N];
 			choice=new int[N][2];
 			list = new ArrayList<Integer>();
+			min = Integer.MAX_VALUE;
 			perm(0);
-			int min = Integer.MAX_VALUE;
-
-			for(int i=0;i<list.size();i++) {
-				if(min>list.get(i)) {
-					min=list.get(i);
-				}
-			}
+ 
 			System.out.println("#"+t+" "+min);
 		}
 		sc.close();
@@ -51,7 +46,7 @@ public class Solution {
 				distance+= (Math.abs(choice[i-1][0]-choice[i][0])+Math.abs(choice[i-1][1]-choice[i][1]));
 			}
 			distance+=(Math.abs(choice[N-1][0]-homer)+Math.abs(choice[N-1][1]-homec));
-			list.add(distance);
+			min = Math.min(min, distance);
 			return;
 		}
 		
