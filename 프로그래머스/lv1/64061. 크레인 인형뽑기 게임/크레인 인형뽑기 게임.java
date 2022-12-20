@@ -1,25 +1,8 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
-
 public class Solution {
-//	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//	static StringTokenizer st;
-//	static int N, answer;
-//	static int[][] board;
-//	static int[] moves;
 	static List<Integer> basket;
-//	public static void main(String[] args) throws NumberFormatException, IOException {
-//		bw.write(String.valueOf(solution(board, moves)));
-//		bw.flush();bw.close();br.close();
-//	}
-    public static int solution(int[][] board, int[] moves) throws IOException {
+    public static int solution(int[][] board, int[] moves) {
     	int N = board.length;
     	basket = new ArrayList<Integer>();
         int answer = 0;
