@@ -1,43 +1,41 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main {
-	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	static StringTokenizer st;
-	static int N, M, sum, start, end, max;
-	static int[] arr;
 	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		
 		st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken()); //독의 구멍개수
-		M = Integer.parseInt(st.nextToken()); //햄스터의 부피
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		
+		int holl[] = new int[N];
+		
 		st = new StringTokenizer(br.readLine());
-		arr = new int[N];
 		for(int i=0;i<N;i++) {
-			arr[i]=Integer.parseInt(st.nextToken());
+			holl[i] = Integer.parseInt(st.nextToken());
 		}
-		sum=0;
-		end=0;
-		max=0;
-		while(end<N) {
-	        if (sum+arr[end]<=M) {
-	            sum+=arr[end];
-	            max=Math.max(max, sum);
-	            end++;
-	        } else {
-	            sum-=arr[start];
-	            start++;
-	        }
-	        if (start>end) {
-	            sum+=arr[end];
-	            end++;
-	        }
-	    }
-		bw.write(String.valueOf(max));
-		bw.flush();bw.close();br.close();
+		
+		int left = 0, right = 1;
+		int sum = holl[0], ans = 0;
+		
+		while(right < N){
+			if(sum+holl[right] < M) {
+				sum += holl[right];
+				right++;
+				ans = Math.max(ans, sum);
+			}else if(sum+holl[right] == M) {
+				ans = sum+holl[right];
+				break;
+			}else {
+				sum -= holl[left];
+				left++;
+			}
+		}
+		
+		System.out.println(ans);
 	}
 }
