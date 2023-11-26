@@ -11,19 +11,15 @@ class Solution {
                 int num = Integer.parseInt(str);
                 tmp+=str;
             } catch(NumberFormatException e) {
-                list.add(tmp);
+                if(!tmp.equals("")) {
+                    answer+=Integer.parseInt(tmp);
+                }
                 tmp="";
                 continue;
             }
         }
         if(!tmp.equals("")) {
-            list.add(tmp);
-        }
-        for(int i=0;i<list.size();i++) {
-            if(list.get(i).equals("")) {
-                continue;
-            }
-            answer+=Integer.parseInt(list.get(i));
+            answer+=Integer.parseInt(tmp);
         }
         return answer;
     }
