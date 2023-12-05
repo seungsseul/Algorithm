@@ -27,11 +27,11 @@ public class Main {
 			m = 2;
 			while(true) {
 				list = new ArrayList<Integer>();
-				for(int i=0;i<G;i++) {
-					if(list.contains(student[i]%m)) {
+				for(int num : student) {
+					if(list.contains(num%m)) {
 						break;
 					}
-					list.add(student[i]%m);
+					list.add(num%m);
 				}
 				if(list.size()==G) {					
 					sb.append(String.valueOf(m)).append("\n");
