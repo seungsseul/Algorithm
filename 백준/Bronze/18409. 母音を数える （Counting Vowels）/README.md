@@ -1,14 +1,18 @@
-# [Bronze IV] 母音を数える (Counting Vowels) - 18409 
+# [Bronze V] 母音を数える (Counting Vowels) - 18409 
 
 [문제 링크](https://www.acmicpc.net/problem/18409) 
 
 ### 성능 요약
 
-메모리: 11476 KB, 시간: 76 ms
+메모리: 14176 KB, 시간: 120 ms
 
 ### 분류
 
-구현(implementation), 문자열(string)
+구현, 문자열
+
+### 제출 일자
+
+2024년 1월 31일 00:07:56
 
 ### 문제 설명
 

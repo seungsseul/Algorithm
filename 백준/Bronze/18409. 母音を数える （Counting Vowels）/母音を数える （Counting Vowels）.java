@@ -9,14 +9,13 @@ public class Main {
 	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static int N, cnt;
 	static String S;
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		cnt=0;
+	static final String Vowels = "aeiou";
+	public static void main(String[] args) throws IOException {
 		N = Integer.parseInt(br.readLine());
 		S = br.readLine();
-		for(int i=0;i<S.length();i++) {
-			if(S.charAt(i)=='a' || S.charAt(i)=='e' || S.charAt(i)=='i' || S.charAt(i)=='o' || S.charAt(i)=='u') {
-				cnt++;
-			}
+		cnt = 0;
+		for(int i=0;i<N;i++) {
+			cnt += Vowels.contains(String.valueOf(S.charAt(i))) ? 1 : 0;
 		}
 		bw.write(String.valueOf(cnt));
 		bw.flush();bw.close();br.close();
