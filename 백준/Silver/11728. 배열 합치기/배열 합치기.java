@@ -15,11 +15,10 @@ public class Main {
 	static StringBuilder sb = new StringBuilder();
 	static int N, M;
 	static List<Integer> list;
-	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		list = new ArrayList<Integer>();
 		st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken()); 
+		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken()); 
 		st = new StringTokenizer(br.readLine());
 		for(int i=0;i<N;i++) {
