@@ -41,12 +41,14 @@ public class Main {
 				arr[i][j]=String.valueOf(Input.charAt(j));
 			}
 		}
+		loop:
 		for(int i=0;i<N;i++) {
 			for(int j=0;j<M;j++) {
 				if(arr[i][j].equals("I")) {
 					visited[i][j]=true;
 					ans=0;
 					bfs(i,j);
+					break loop;
 				}
 			}
 		}
@@ -65,15 +67,11 @@ public class Main {
 					if(arr[nr][nc].equals("X") || visited[nr][nc]) {
 						continue;
 					}
-					if(arr[nr][nc].equals("O")) {
-						visited[nr][nc]=true;
-						q.offer(new Node(nr, nc, ans));
-					}
 					if(arr[nr][nc].equals("P")) {
 						ans++;
-						visited[nr][nc]=true;
-						q.offer(new Node(nr, nc, ans));
 					}
+					q.offer(new Node(nr, nc, ans));
+					visited[nr][nc]=true;
 				}
 			}
 		}
