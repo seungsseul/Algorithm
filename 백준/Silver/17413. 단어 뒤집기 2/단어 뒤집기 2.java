@@ -9,6 +9,7 @@ public class Main {
 	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
+	static StringBuilder word = new StringBuilder();
 	static StringBuilder sb = new StringBuilder();
 	static String Input, tmp;
 	static boolean flag;
@@ -18,8 +19,9 @@ public class Main {
 		for(int i=0;i<Input.length();i++) {
 			if(Input.charAt(i)=='<') {
 				if(!flag) {
-					reverse(tmp);
-					sb.append(tmp);
+					word.setLength(0);
+					word.append(tmp).reverse();
+					sb.append(word.toString());
 				}
 				else { 
 					sb.append(tmp);
@@ -37,29 +39,19 @@ public class Main {
 				continue;
 			}
 			if(Input.charAt(i)==' ' && !flag) {
-				reverse(tmp);
-				sb.append(tmp).append(" ");
+				word.setLength(0);
+				word.append(tmp).reverse();
+				sb.append(word.toString()).append(" ");
 				tmp="";
 				continue;
 			}
-			if(flag) {
-				tmp+=String.valueOf(Input.charAt(i));
-				continue;
-			}
-			else {
-				tmp+=String.valueOf(Input.charAt(i));
-			}
+			tmp+=String.valueOf(Input.charAt(i));
 		}
 		if(!flag) {
-			reverse(tmp);
-			sb.append(tmp);
+			word.setLength(0);
+			word.append(tmp).reverse();
+			sb.append(word.toString());
 		}
 		bw.write(sb.toString());bw.close();br.close();
-	}
-	static void reverse(String tmp2) {
-		tmp="";
-		for(int i=tmp2.length()-1;i>=0;i--) {
-			tmp+=String.valueOf(tmp2.charAt(i));
-		}
 	}
 }
