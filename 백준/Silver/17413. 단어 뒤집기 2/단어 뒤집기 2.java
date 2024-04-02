@@ -11,46 +11,32 @@ public class Main {
 	static StringTokenizer st;
 	static StringBuilder word = new StringBuilder();
 	static StringBuilder sb = new StringBuilder();
-	static String Input, tmp;
+	static String Input;
 	static boolean flag;
 	public static void main(String[] args) throws IOException {
 		Input = br.readLine();
-		tmp = "";
 		for(int i=0;i<Input.length();i++) {
 			if(Input.charAt(i)=='<') {
-				if(!flag) {
-					word.setLength(0);
-					word.append(tmp).reverse();
-					sb.append(word.toString());
-				}
-				else { 
-					sb.append(tmp);
-				}
-				tmp="";
-				tmp+="<";
+				sb.append(word.reverse()).append('<');
+				word.setLength(0);
 				flag = true;
 				continue;
 			}
-			if(Input.charAt(i)=='>' && flag) {
-				tmp+=">";
+			if(Input.charAt(i)=='>') {
+				sb.append(word).append('>');
+				word.setLength(0);
 				flag = false;
-				sb.append(tmp);
-				tmp="";
 				continue;
 			}
 			if(Input.charAt(i)==' ' && !flag) {
+				sb.append(word.reverse()).append(' ');
 				word.setLength(0);
-				word.append(tmp).reverse();
-				sb.append(word.toString()).append(" ");
-				tmp="";
 				continue;
 			}
-			tmp+=String.valueOf(Input.charAt(i));
+			word.append(Input.charAt(i));
 		}
 		if(!flag) {
-			word.setLength(0);
-			word.append(tmp).reverse();
-			sb.append(word.toString());
+			sb.append(word.reverse());
 		}
 		bw.write(sb.toString());bw.close();br.close();
 	}
