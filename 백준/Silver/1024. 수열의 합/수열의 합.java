@@ -10,29 +10,25 @@ public class Main {
 	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	static StringBuilder sb = new StringBuilder();
-	static int N, L;
+	static int N, L, num, sum;
 	static boolean flag;
-	static long[] arr;
 	public static void main(String[] args) throws IOException {
 		st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken());
 		L = Integer.parseInt(st.nextToken());
 		loop:
 		for(int i=L;i<=100;i++) {
-			long num = 0;
-			while(true) {
-				long sum = num*i+((i-1)*i/2);
-				if(sum==N) {
-					flag = true;
-					for(long j=num;j<i+num;j++) {
-						sb.append(j).append(" ");
+			num = (2*N)/(2*i)-(i*(i-1))/(2*i);
+			sum = i*num+(i-1)*i/2;
+			if(sum==N) {
+				for(int j=num;j<num+i;j++) {
+					if(j<0) {
+						continue loop;
 					}
-					break loop;
+					sb.append(j).append(" ");
 				}
-				if(sum>N) {
-					break;
-				}
-				num++;
+				flag = true;
+				break;
 			}
 		}
 		if(!flag) {
