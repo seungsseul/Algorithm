@@ -12,9 +12,8 @@ public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		N = Integer.parseInt(br.readLine());
 		for(int i=1;i<=9;i++) {
-			sb.append(N).append(" ").append("*").append(" ").append(i).append(" ").append("=").append(" ").append(N*i).append("\n");
+			sb.append(N).append(" * ").append(i).append(" = ").append(N*i).append("\n");
 		}
-		bw.write(sb.toString());
-		bw.close();br.close();
+		bw.write(sb.toString());bw.close();br.close();
 	}
 }
