@@ -8,6 +8,7 @@ public class Main {
 	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static String S, ans;
+	static char tmp;
 	static int zero, one;
 	public static void main(String[] args) throws IOException {
 		S = br.readLine();
@@ -22,11 +23,20 @@ public class Main {
 		}
 		zero/=2; one/=2;
 		ans = "";
-		for(int i=0;i<zero;i++) {
-			ans+="0";
-		}
-		for(int i=0;i<one;i++) {
-			ans+="1";
+		for(int i=0;i<S.length();i++) {
+			tmp = S.charAt(i);
+			if(tmp=='1' && one>0) {
+				one--;
+				continue;
+			}
+			if(tmp=='0' && zero<=0) {
+				continue;
+			}
+			if(tmp=='0') {
+				zero--;
+			}
+			ans+=String.valueOf(tmp);
+			
 		}
 		bw.write(ans);bw.flush();bw.close();br.close();
 	}
