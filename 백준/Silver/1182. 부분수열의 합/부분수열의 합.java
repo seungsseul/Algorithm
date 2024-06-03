@@ -1,44 +1,48 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Main {
-	static int N,S, sum, cnt;
+	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	static StringTokenizer st;
+	static int N, S, sum, cnt;
 	static int[] arr;
-	static boolean[] check;
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		N = sc.nextInt();
-		S = sc.nextInt();
+	static boolean[] visited;
+	public static void main(String[] args) throws IOException {
+		st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		S = Integer.parseInt(st.nextToken());
 		arr = new int[N];
+		visited = new boolean[N];
+		st = new StringTokenizer(br.readLine());
 		for(int i=0;i<N;i++) {
-			arr[i] = sc.nextInt();
+			arr[i] = Integer.parseInt(st.nextToken());
 		}
-		check = new boolean[N];
-		sum=0;
-		cnt=0;
-		SUM(0);
-		System.out.println(cnt);
-        sc.close();
+		cnt = 0;
+		for(int i=1;i<=N;i++) {			
+			combination(0, 0, i);
+		}
+		bw.write(String.valueOf(cnt));bw.flush();bw.close();br.close();
 	}
-	
-	static void SUM(int idx) {
-		if(idx==N) {
-			sum=0;
-			int check2=0;
-			for(int i=0;i<arr.length;i++) {
-				if(check[i]) {
-					sum+=arr[i];
-					check2++;
-				}
+	static void combination(int start, int depth, int r) {
+		if(depth==r) {
+			sum = 0;
+			for(int i=0;i<N;i++) {
+				sum += visited[i] ? arr[i] : 0;
 			}
-			if(sum==S && check2!=0) {
-				cnt++;
-			}
+			cnt += sum == S ? 1 : 0;
 			return;
 		}
-		check[idx]=true;
-		SUM(idx+1);
-		check[idx]=false;
-		SUM(idx+1);
-		
+		for(int i=start;i<N;i++) {
+			if(!visited[i]) {
+				visited[i]=true;
+				combination(i+1, depth+1, r);
+				visited[i]=false;
+			}
+		}
 	}
 }
