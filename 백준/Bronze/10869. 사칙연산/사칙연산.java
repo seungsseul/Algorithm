@@ -10,13 +10,12 @@ public class Main {
 	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static StringTokenizer st;
 	static StringBuilder sb = new StringBuilder();
-	static int A,B;
+	static int A, B;
 	public static void main(String[] args) throws IOException {
 		st = new StringTokenizer(br.readLine());
 		A = Integer.parseInt(st.nextToken());
 		B = Integer.parseInt(st.nextToken());
 		sb.append(A+B).append("\n").append(A-B).append("\n").append(A*B).append("\n").append(A/B).append("\n").append(A%B);
-		bw.write(sb.toString());
-		bw.flush();bw.close();br.close();
+		bw.write(sb.toString());bw.close();br.close();
 	}
 }
