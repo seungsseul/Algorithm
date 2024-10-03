@@ -8,19 +8,19 @@ import java.util.StringTokenizer;
 public class Main {
 	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st;
-	static String readline;
+	static StringBuilder sb = new StringBuilder();
+	static int M, F;
 	public static void main(String[] args) throws IOException {
 		while(true) {
-			readline = br.readLine();
-			if(readline.equals("0 0")) {
+			st = new StringTokenizer(br.readLine());
+			M = Integer.parseInt(st.nextToken());
+			F = Integer.parseInt(st.nextToken());
+			if(M==0 && F==0) {
 				break;
 			}
-			st = new StringTokenizer(readline);
-			sb.append(Integer.parseInt(st.nextToken())+Integer.parseInt(st.nextToken())).append("\n");
+			sb.append(M+F).append("\n");
 		}
-		bw.write(sb.toString());
-		bw.flush();bw.close();br.close();
+		bw.write(sb.toString());bw.close();br.close();
 	}
 }
