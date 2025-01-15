@@ -1,28 +1,36 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		while(true) {
-			int sel = 0;
-			int N  = sc.nextInt();
-			if(N==0) {
+	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	static StringBuilder sb = new StringBuilder();
+	static String Input;
+	static int sum;
+	public static void main(String[] args) throws IOException {
+		while(true) {			
+			Input = br.readLine();
+			if(Input.equals("0")) {
 				break;
 			}
-			String n = Integer.toString(N);
-			sel += (n.length()+1);
-			for(int i=0;i<n.length();i++) {
-				if(n.charAt(i)=='0') {
-					sel+=4;
+			sum = 2;
+			sum += Input.length()-1;
+			for(int i=0;i<Input.length();i++) {
+				if(Input.charAt(i)=='0') {
+					sum += 4;
 				}
-				else if(n.charAt(i)=='1') {
-					sel+=2;
+				else if(Input.charAt(i)=='1') {
+					sum += 2;
 				}
 				else {
-					sel+=3;
+					sum += 3;
 				}
 			}
-			System.out.println(sel);
+			sb.append(sum).append("\n");
 		}
+		bw.write(sb.toString());bw.close();br.close();
 	}
 }
